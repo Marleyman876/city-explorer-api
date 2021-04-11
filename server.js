@@ -1,12 +1,16 @@
-const { response } = require('express');
-const express = require('express'); //always required for buildiing servers 
-const cors = require('cors')
+'use strict';
+require('dotenv').config();
+// const { response } = require('express');
+const express = require('express'); //always required for building servers 
+const cors = require('cors');
+
+const app = express(); //always required 
+app.use(cors());
 
 const weatherData = require('./data/weather.json')
 
 require ('dotenv').config(); //needed to run .env file 
 
-const app = express(); //always required 
 const PORT = process.env.PORT || 3001; // if 3002 is unavailable use 3001c 
 
 app.get('/city_weather', (request, response) =>{
